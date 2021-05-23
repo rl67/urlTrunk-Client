@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { LAOD_TAGS_FOR_TAGLIST} from '../queries/queries';
+import { LAOD_TAGS_FOR_TAGLIST} from '../graphql/queries';
 
 function LoadTagsForTagList(props){
     const [tags, setTags] = useState([]);

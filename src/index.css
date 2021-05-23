@@ -53,9 +53,10 @@ code {
   border-radius: '10px';
 }
 
-/* .tagList-preview:hover {
-  box-shadow: 6px 3px 5px rgba(0,0,0,0.1);
-} */
+.tagList-preview:hover {
+  /* box-shadow: 6px 3px 5px rgba(0,0,0,0.1); */
+  cursor: pointer;
+}
 .tagList-preview h2 {
   font-size: 15px;
   color: #f1356d;

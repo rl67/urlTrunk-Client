@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useQuery } from '@apollo/client';
-import { LOAD_TAGLISTS } from '../queries/queries';
+import { LOAD_TAGLISTS } from '../graphql/queries';
 import LoadTagsForTagList from './loadTagsForTagList';
+import AddTagList from './addTagList';
 
 function TagLists() {
-    const [ tagListSelected, SetTagListSelected ] = useState('6081b6e4fa6a712aadae777a');
-    const [tLists, setTLists] = useState([]);
+    const [ tagListSelected, setTagListSelected ] = useState('6081b6e4fa6a712aadae777a');
+    const [ tLists, setTLists] = useState([]);
+    const { loading, data, error } = useQuery(LOAD_TAGLISTS);
 
     const handleTagListsClick = (tList) => { // eslint-disable-next-line
-        SetTagListSelected(tList.id);
+        setTagListSelected(tList.id);
     }
 
-    const { loading, data, error } = useQuery(LOAD_TAGLISTS);
     
+    // Populate data base data to the DOM
     useEffect(() => {
         if(data){
             setTLists(data.tagLists)
@@ -24,7 +26,9 @@ function TagLists() {
     
     return (
         <div className="tagList">
-            <h2>Tag Lists</h2>
+            <h2>Tag Lists
+                <AddTagList />
+            </h2>
             {tLists.map(tList => (
                 <div className="tagList-preview" key={tList.id}>
                     <button onClick={() => handleTagListsClick(tList)} style={{

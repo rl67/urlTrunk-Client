@@ -10,7 +10,9 @@ code {
     monospace;
 }
 
-/* App */
+/*---------------------------------
+                           App
+-----------------------------------*/                           
 .App h1 {
  color: rgb(27, 16, 190);
 }
@@ -22,7 +24,9 @@ code {
 }
 
 
-/* Navbar */
+/*---------------------------------
+                           Navbar 
+-----------------------------------*/                           
 .navbar {
   padding: 20px;
   display: flex;
@@ -41,7 +45,10 @@ code {
   color: #a837be;
 }
 
-/* Tag List formats */
+/*---------------------------------
+                           TagList
+-----------------------------------*/                           
+
 .tagList {
   display: inline-block
 }
@@ -61,4 +68,16 @@ code {
   font-size: 15px;
   color: #f1356d;
   margin-bottom: 2px;
+}
+.addTagList {
+  margin: 15px;
+  font-size: 18px;
+}
+
+/*---------------------------------
+                           addTag 
+-----------------------------------*/                           
+.addTag {
+  margin: 15px;
+  font-size: 18px;
 }

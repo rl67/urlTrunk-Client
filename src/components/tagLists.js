@@ -26,9 +26,10 @@ function TagLists() {
     
     return (
         <div className="tagList">
-            <h2>Tag Lists
+            <h2>Tag Lists</h2>
+            <div className="addTagList">
                 <AddTagList />
-            </h2>
+            </div>
             {tLists.map(tList => (
                 <div className="tagList-preview" key={tList.id}>
                     <button onClick={() => handleTagListsClick(tList)} style={{

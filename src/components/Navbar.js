@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <nav className="navbar">
-            <h1>urlTagd | Organizing Your Bookmarks</h1>
+            <h1>urlTrunk | Organizing Your Bookmarks</h1>
             <div className="links">
                 <Link to="/api/tagList" style={{
                     color: 'white',

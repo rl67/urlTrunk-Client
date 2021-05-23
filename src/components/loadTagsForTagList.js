@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import AddTag from '../components/addTag';
 import { useQuery } from '@apollo/client';
 import { LAOD_TAGS_FOR_TAGLIST} from '../graphql/queries';
 
@@ -22,6 +23,9 @@ function LoadTagsForTagList(props){
     return(
         <div className="tags">
             <h2>Tags in { data.tagList.name }</h2>
+            <div className="addTag">
+                <AddTag id={ props.id }/>
+            </div>
             { tags.map(tag => (
                 <div className="tagList" key={ tag.id }>
                     <button style={{

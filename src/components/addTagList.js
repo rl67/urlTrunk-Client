@@ -29,7 +29,7 @@ function AddTagList() {
                 backgroundColor: '#4f66cc',
                 borderRadius: '20px',
                 padding: '10px',
-                marginLeft: '100px'
+                marginLeft: '20px'
             }}>Add tag list</button>
         </div>
     );

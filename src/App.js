@@ -22,10 +22,10 @@ function App () {
             <Navbar />
             <div className="content">
               <Switch>
-                <Route exact path="/api/tagList">
+                <Route exact path="/tagList">
                   <TagLists />
                 </Route>
-                <Route path="/api/tags">
+                <Route path="/tags">
                   <Tags />
                 </Route>
               </Switch>

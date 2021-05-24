@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import AddTag from '../components/addTag';
 import { useQuery } from '@apollo/client';
 import { LAOD_TAGS_FOR_TAGLIST} from '../graphql/queries';
+import AddUrl from './addBookmark';
+import AddBookmark from './addBookmark';
 
 function LoadTagsForTagList(props){
     const [tags, setTags] = useState([]);
@@ -36,6 +38,9 @@ function LoadTagsForTagList(props){
                     }}>{ tag.name }</button>
                 </div>
             ))}
+            <div className="searchUrl">
+                <AddBookmark />
+            </div>
         </div>
     )
 }

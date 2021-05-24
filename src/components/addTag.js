@@ -1,21 +1,29 @@
 import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { ADD_TAG } from '../graphql/mutations';
 import { LAOD_TAGS_FOR_TAGLIST } from '../graphql/queries';
 
 function AddTag(props) {
     const [ name, setName ] = useState('');
     const [ addTag, { data } ] = useMutation(ADD_TAG);
+    const { loadTagsData } = useQuery(LAOD_TAGS_FOR_TAGLIST, {
+        variables: {
+            id: props.id
+        }
+    })
 
     const handleAddTag = () => {
-        console.log(props)
         addTag({
             variables: {
                 name: name,
                 tagListId: props.id
             },
             refetchQueries: [
-                { query: LAOD_TAGS_FOR_TAGLIST }
+                { query: LAOD_TAGS_FOR_TAGLIST, 
+                    variables: {
+                        id: props.id
+                    }
+                }
             ]
         })
     }

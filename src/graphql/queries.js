@@ -29,3 +29,31 @@ export const LAOD_TAGS_FOR_TAGLIST = gql`
         }
     }
 `;
+
+// Get Bookmarks by tags
+/*
+query getBookmarks($tags: [ID]){
+  bookmarksByTags(tags: $tags) {
+    id
+		name
+  }
+}
+variables:
+{
+  "tags": [
+    "609d7e331b152b6fc5cd0ae4",
+    "609d7e4c1b152b6fc5cd0ae5"
+  ]
+}
+
+*/
+export const GET_BOOKMARKS = gql`
+    query getBookmarks($tags: [ID!]) {
+        bookmarksByTags(tags: $tags) {
+            id
+            name
+            url
+            note
+        }
+    }
+`;

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { LAOD_TAGS_FOR_TAGLIST} from '../graphql/queries';
 import AddUrl from './addBookmark';
 import AddBookmark from './addBookmark';
+import GetBookmarks from './getBookmarks';
 
 function LoadTagsForTagList(props){
     const [tags, setTags] = useState([]);
@@ -21,6 +22,11 @@ function LoadTagsForTagList(props){
 
     if (loading) return <div>Loading tags...</div>
     if (error) return <div>`Error fetching tags for tag list: ${ error.message }`</div>
+
+    const tagList = [    
+        "609d7e331b152b6fc5cd0ae4",
+        "609d7e4c1b152b6fc5cd0ae5"
+    ];
 
     return(
         <div className="tags">
@@ -40,6 +46,9 @@ function LoadTagsForTagList(props){
             ))}
             <div className="searchUrl">
                 <AddBookmark />
+            </div>
+            <div className="getBookmarks">
+                <GetBookmarks tags={ tagList } />
             </div>
         </div>
     )

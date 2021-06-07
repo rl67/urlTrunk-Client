@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useQuery } from '@apollo/client';
 import { LOAD_TAGLISTS } from '../graphql/queries';
-import LoadTagsForTagList from './loadTagsForTagList';
-import AddTagList from './addTagList';
 
-function TagLists() {
-    const [ tagListSelected, setTagListSelected ] = useState('6081b6e4fa6a712aadae777a');
+function TagLists(props) {
+    // const [ tagListSelected, setTagListSelected ] = useState('6081b6e4fa6a712aadae777a');
     const [ tLists, setTLists] = useState([]);
     const { loading, data, error } = useQuery(LOAD_TAGLISTS);
 
     const handleTagListsClick = (tList) => { // eslint-disable-next-line
-        setTagListSelected(tList.id);
+        // props.getClickedTagList(tList.id);
+        props.getClickedTagList(tList);
     }
 
     
@@ -18,6 +17,7 @@ function TagLists() {
     useEffect(() => {
         if(data){
             setTLists(data.tagLists)
+            props.getClickedTagList(data.tagLists[0].id)    // Default tag list is the first one, to avoid null pointer in parent
         }
     }, [data]);
 
@@ -26,10 +26,7 @@ function TagLists() {
     
     return (
         <div className="tagList">
-            <h2>Tag Lists</h2>
-            <div className="addTagList">
-                <AddTagList />
-            </div>
+
             {tLists.map(tList => (
                 <div className="tagList-preview" key={tList.id}>
                     <button onClick={() => handleTagListsClick(tList)} style={{
@@ -41,7 +38,6 @@ function TagLists() {
                     </button>
                 </div>
             ))}
-            <LoadTagsForTagList id={ tagListSelected} />
         </div>
     );
 }

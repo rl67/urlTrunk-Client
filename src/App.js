@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client/react';
 import Navbar from "./components/Navbar";
-import TagLists from './components/tagLists';
+import UrlTrunk from './components/urlTrunk';
 import Tags from "./components/tags";
 
 
@@ -22,8 +22,8 @@ function App () {
             <Navbar />
             <div className="content">
               <Switch>
-                <Route exact path="/tagList">
-                  <TagLists />
+                <Route exact path="/urls">
+                  <UrlTrunk />
                 </Route>
                 <Route path="/tags">
                   <Tags />

@@ -3,25 +3,26 @@ import { useMutation } from '@apollo/client';
 import { ADD_TAG_LIST } from '../graphql/mutations';
 import { LOAD_TAGLISTS } from '../graphql/queries';
 
-function AddTagList() {
+function AddTagList(props) {
     let input;
     const [ name, setName ] = useState('');
     const [ addTagList, { data } ] = useMutation(ADD_TAG_LIST);
 
     const handleAddTagList = () => {
+        props.newTagList(true);     // ti init a new render of the main page
         addTagList({
             variables: {
                 name: name
             },
-            refetchQueries: [
-                {query: LOAD_TAGLISTS }
-            ]
+            // refetchQueries: [
+            //     {query: LOAD_TAGLISTS }
+            // ]
         })
     }
 
     return(
         <div className="addTagList">
-             <label>Tag list name:</label>
+             <label>Name of new tag list:</label>
              <input type="text" onChange={ (e) => setName(e.target.value) } />
 
             <button onClick={() => handleAddTagList()} style={{

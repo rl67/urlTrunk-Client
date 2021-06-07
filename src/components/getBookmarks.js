@@ -13,7 +13,6 @@ function GetBookmarks(props) {
 
     useEffect(() => {
         if (data){
-            console.log(data); //?dbg
             setBookmarks(data.bookmarksByTags);
         }
     }, [data]);

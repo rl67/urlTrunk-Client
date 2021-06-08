@@ -13,8 +13,6 @@ function LoadTagsForTagList(props){
 
     useEffect(() => {
         if (data){
-            console.log('loadTagsForList'); //??
-            console.log(props)
             setTags(data.tagList.tags);
         }
     }, [data]);
@@ -24,6 +22,8 @@ function LoadTagsForTagList(props){
 
     const handleTagClick = (tag) => {
         setTagSelected(tag.id);
+        console.log(tag);   //??
+        props.getClickedTag(tag);
     }
 
     return(

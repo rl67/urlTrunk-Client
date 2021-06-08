@@ -9,10 +9,9 @@ import GetBookmarks from './getBookmarks';
 
 
 function UrlTrunk ()  {
-    const [ tagListSelected , setTagListSelected ] = useState('');
+    const [ tagListSelected , setTagListSelected ] = useState(null);
     const [ tagListAdded, setTagListAdded ] = useState(false);
-
-    let searchTags = [];
+    const [ searchTags, setSearchTags ] = useState([]);
 
     // useEffect(() => {
     // }, [tagListSelected])
@@ -20,18 +19,19 @@ function UrlTrunk ()  {
     return(
         <div className="urlTrunk">
             <h2>Tag Lists</h2>
-            {/* <div className="addTagList">
-                <AddTagList newTagList={ tagListAdded => setTagListAdded(tagListAdded) }/>
-            </div>             */}
             <div className="tag-lists">
                 <TagLists getClickedTagList={ tagListSelected => setTagListSelected(tagListSelected) } />
             </div>
+            <div className="addTagList">
+                <AddTagList newTagList={ tagListAdded => setTagListAdded(tagListAdded) }/>
+            </div>            
             <div className="tags-in-list">
                 { tagListSelected && <h2>Tags in { tagListSelected.name }</h2> }
-                { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } /> }
+                { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ searchTags => setSearchTags(searchTags) } /> }
+                { console.log(searchTags) }
             </div>
             <div className="addTag">
-                <AddTag id={ tagListSelected.id }/>
+               { tagListSelected && <AddTag id={ tagListSelected.id }/> }
             </div>
             <div className="addBookmark">
                 <h2>Bookmarks</h2>

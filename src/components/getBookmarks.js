@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_BOOKMARKS } from '../graphql/queries';
 
@@ -12,6 +11,7 @@ function GetBookmarks(props) {
     });
 
     useEffect(() => {
+        console.log(props); //??
         if (data){
             setBookmarks(data.bookmarksByTags);
         }
@@ -22,7 +22,9 @@ function GetBookmarks(props) {
 
     return(
         <div className="bookmarks">
-            <h2>Bookmarks</h2>
+            <div className="tagsToSearch">
+                
+            </div>
             <ul id="bookmark-list">
                 { bookmarks.map(bookmark => {
                     return(

@@ -34,7 +34,7 @@ function LoadTagsForTagList(props){
                         backgroundColor: '#b95688',
                         borderRadius: '20px',
                         padding: '10px'
-                    }}>{ tag.name + tag.id }</button>
+                    }}>{ tag.name }</button>
                 </div>
             ))}
         </div>

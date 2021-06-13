@@ -27,7 +27,8 @@ function GetBookmarks(props) {
                 { bookmarks.map(bookmark => {
                     return(
                         <li key={ bookmark.id }>
-                             <a href={bookmark.url}>{ bookmark.name }</a>
+                             <a href={ bookmark.url }
+                                target="_blank">{ bookmark.name }</a>
                              <p>{ bookmark.note }</p>
                         </li>
                     )

@@ -23,8 +23,8 @@ export const ADD_TAG = gql`
 
 // Add a new URL to the database
 export const ADD_BOOKMARK = gql`
-  mutation AddBookmark($name: String, $url: String!, $note: String) {
-    addBookmark(name: $name, url: $url, note: $note) {
+  mutation AddBookmark($name: String, $url: String!, $note: String, $tags: [ID!]) {
+    addBookmark(name: $name, url: $url, note: $note, tags: $tags) {
       id
       name
     }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_BOOKMARK } from '../graphql/mutations';
 
-function AddBookmark(){
+function AddBookmark(props){
     const [ name, setName ] = useState('');
     const [ url, setUrl ] = useState('');
     const [ note, setNote ] = useState('');
@@ -10,15 +10,16 @@ function AddBookmark(){
     const [ addBookmark, { data } ] = useMutation(ADD_BOOKMARK);    
 
     const handleAddBookmark = () => {
+        console.log(props.tags);//??
         addBookmark({
             variables: {
                 name: name,
                 url: url,
-                note: note,
+                note: note,                
+                tags: props.tags,
             }
         })
     }
-    
     
     return(
         <form id="add-url" onSubmit={() => handleAddBookmark() }>

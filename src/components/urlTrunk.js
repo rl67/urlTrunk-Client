@@ -15,6 +15,7 @@ function UrlTrunk ()  {
     const [ searchTags, setSearchTags ] = useState([]);
     const [ search, setSearch ] = useState(false)
 
+    // Extract the id to a separate id array. To be used as grapqhl argument for tag
     const SearchTagsToArray = (sTags) => {
         let tags = sTags.map(item => item['id']);
         return tags;
@@ -41,7 +42,7 @@ function UrlTrunk ()  {
                 { searchTags && <SearchForTags tags={ searchTags } /> }
             </div>
             <div className="addBookmark">
-                <AddBookmark />
+                { searchTags && <AddBookmark tags={ SearchTagsToArray(searchTags) }/>}
             </div>
             <div className="getBookmarks">
                 <button onClick={ () => setSearch(true) }>Search</button>

@@ -82,9 +82,16 @@ code {
   font-size: 18px;
 }
 
+/*---------------------------------
+                    search-for-tags
+-----------------------------------*/   
+.search-for-tags{
+  display: inline-block;
+}
+
 /* ---------------------------------
-                          addBookmark                     
-*/
+                         addBookmark                     
+-----------------------------------*/   
 .addBookmark {
   margin: 15px;
 }

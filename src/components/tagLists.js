@@ -17,7 +17,7 @@ function TagLists(props) {
     useEffect(() => {
         if(data){
             setTLists(data.tagLists)
-            props.getClickedTagList(data.tagLists[0])    // Default tag list is the first one, to avoid null pointer in parent
+            //!?props.getClickedTagList(data.tagLists[0])    // Default tag list is the first one, to avoid null pointer in parent
         }
     }, [data]);
 

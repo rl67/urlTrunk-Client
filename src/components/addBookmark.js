@@ -6,7 +6,8 @@ function AddBookmark(){
     const [ name, setName ] = useState('');
     const [ url, setUrl ] = useState('');
     const [ note, setNote ] = useState('');
-    const [ addBookmark, { data } ] = useMutation(ADD_BOOKMARK);    //es-lint ignore
+    //es-lint ignore
+    const [ addBookmark, { data } ] = useMutation(ADD_BOOKMARK);    
 
     const handleAddBookmark = () => {
         addBookmark({

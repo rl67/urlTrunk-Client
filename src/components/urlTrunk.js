@@ -11,7 +11,7 @@ import SearchForTags from '../components/searchForTags';
 function UrlTrunk ()  {
     const [ tagListSelected , setTagListSelected ] = useState(null);
     const [ tagListAdded, setTagListAdded ] = useState(false);
-    const [ searchTags, setSearchTags ] = useState(null);
+    const [ searchTags, setSearchTags ] = useState([]);
 
     return(
         <div className="urlTrunk">
@@ -24,13 +24,13 @@ function UrlTrunk ()  {
             </div>            
             <div className="tags-in-list">
                 { tagListSelected && <h2>Tags in { tagListSelected.name }</h2> }
-                { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ searchTags => setSearchTags(searchTags) } /> }
+                { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ (searchTag) => {setSearchTags([...searchTags, {id: searchTag.id, name: searchTag.name }]); console.log(searchTags)} } /> }
             </div>
             <div className="addTag">
                { tagListSelected && <AddTag id={ tagListSelected.id }/> }
             </div>
             <div className="searchForTags">
-                { searchTags && <SearchForTags id={ searchTags.id } name={ searchTags.name } /> }
+                { searchTags && <SearchForTags tags={ searchTags } /> }
             </div>
             <div className="addBookmark">
                 <h2>Bookmarks</h2>

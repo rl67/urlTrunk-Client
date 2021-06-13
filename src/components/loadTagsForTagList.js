@@ -23,6 +23,8 @@ function LoadTagsForTagList(props){
     const handleTagClick = (tag) => {
         setTagSelected(tag.id);
         props.getClickedTag(tag);
+        console.log('loadTagsForTagList'); //??
+        console.log(tag);
     }
 
     return(

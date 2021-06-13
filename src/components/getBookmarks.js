@@ -9,9 +9,10 @@ function GetBookmarks(props) {
             tags: props.tags
         }
     });
+    
+    console.log(props.tas);//??
 
     useEffect(() => {
-        console.log(props); //??
         if (data){
             setBookmarks(data.bookmarksByTags);
         }
@@ -22,9 +23,6 @@ function GetBookmarks(props) {
 
     return(
         <div className="bookmarks">
-            <div className="tagsToSearch">
-                
-            </div>
             <ul id="bookmark-list">
                 { bookmarks.map(bookmark => {
                     return(

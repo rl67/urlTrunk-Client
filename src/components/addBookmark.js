@@ -34,10 +34,6 @@ function AddBookmark(){
                 <label>Note:</label>
                 <input type="text" onChange={ (e) => setNote(e.target.value) } />
             </div>
-            <div className="field">
-                <label>Tags:</label>
-                <input type="text"></input>
-            </div>
             <button>Add Bookmark</button>
         </form>
     )

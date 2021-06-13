@@ -23,8 +23,6 @@ function LoadTagsForTagList(props){
     const handleTagClick = (tag) => {
         setTagSelected(tag.id);
         props.getClickedTag(tag);
-        console.log('loadTagsForTagList'); //??
-        console.log(tag);
     }
 
     return(
@@ -36,7 +34,7 @@ function LoadTagsForTagList(props){
                         backgroundColor: '#b95688',
                         borderRadius: '20px',
                         padding: '10px'
-                    }}>{ tag.name }</button>
+                    }}>{ tag.name + tag.id }</button>
                 </div>
             ))}
         </div>

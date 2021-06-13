@@ -4,7 +4,7 @@ function SearchForTags (props) {
 
     return(
         <div className="search-for-tags">
-            <h2>Search for bookmarks with the following tags:</h2>
+            <h2>Bookmarks tags</h2>
             {props.tags.map(tag => (
                 <div className="tagList-preview" key={tag.id}>
                     <button style={{
@@ -16,10 +16,6 @@ function SearchForTags (props) {
                     </button>
                 </div>
             ))}    
-            <button id="search" style={{
-                marginLeft: '10px'
-                }}>Search
-            </button>
         </div>
     )
 }

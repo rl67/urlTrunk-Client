@@ -4,7 +4,7 @@ function SearchForTags (props) {
 
     return(
         <div className="search-for-tags">
-            <h2>Bookmarks tags</h2>
+            { props.length > 0 && <h2>Bookmarks tags</h2> }
             {props.tags.map(tag => (
                 <div className="tagList-preview" key={tag.id}>
                     <button style={{

@@ -4,7 +4,6 @@ import { ADD_TAG_LIST } from '../graphql/mutations';
 import { LOAD_TAGLISTS } from '../graphql/queries';
 
 function AddTagList(props) {
-    let input;
     const [ name, setName ] = useState('');
     const [ addTagList, { data } ] = useMutation(ADD_TAG_LIST);
 
@@ -20,18 +19,12 @@ function AddTagList(props) {
         })
     }
 
-    return(
+    return( 
         <div className="addTagList">
              <label>Name of new tag list:</label>
              <input type="text" onChange={ (e) => setName(e.target.value) } />
 
-            <button onClick={() => handleAddTagList()} style={{
-                color: 'white',
-                backgroundColor: '#4f66cc',
-                borderRadius: '20px',
-                padding: '10px',
-                marginLeft: '20px'
-            }}>Add tag list</button>
+            <button id="btnCmd" onClick={() => handleAddTagList()} >Add tag list</button>
         </div>
     );
 }

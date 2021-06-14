@@ -35,7 +35,11 @@ function AddBookmark(props){
                 <label>Note:</label>
                 <input type="text" onChange={ (e) => setNote(e.target.value) } />
             </div>
-            <button>Add Bookmark</button>
+            <button style={{
+                borderRadius: '10px',
+                padding: '10px',
+                marginLeft: '20px'
+            }}>Add Bookmark</button>
         </form>
     )
 }

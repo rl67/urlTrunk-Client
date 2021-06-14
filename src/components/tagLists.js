@@ -3,13 +3,11 @@ import { useQuery } from '@apollo/client';
 import { LOAD_TAGLISTS } from '../graphql/queries';
 
 function TagLists(props) {
-    // const [ tagListSelected, setTagListSelected ] = useState('6081b6e4fa6a712aadae777a');
-    const [ tLists, setTLists] = useState([]);
+    const [ tLists, setTLists] = useState([]);                  // Hold tag lists loaded from db
     const { loading, data, error } = useQuery(LOAD_TAGLISTS);
 
     const handleTagListsClick = (tList) => { // eslint-disable-next-line
-        // props.getClickedTagList(tList.id);
-        props.getClickedTagList(tList);
+        props.getClickedTagList(tList);                         // Lift state to parent, which list is clicked
     }
 
     
@@ -17,7 +15,6 @@ function TagLists(props) {
     useEffect(() => {
         if(data){
             setTLists(data.tagLists)
-            //!?props.getClickedTagList(data.tagLists[0])    // Default tag list is the first one, to avoid null pointer in parent
         }
     }, [data]);
 

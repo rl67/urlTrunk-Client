@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { LAOD_TAGS_FOR_TAGLIST} from '../graphql/queries';
+import { RiCloseCircleLine} from 'react-icons/ri';
+import { assertAbstractType } from 'graphql';
 
 function LoadTagsForTagList(props){
     const [ tagSelected, setTagSelected ] = useState([]);
@@ -29,12 +31,15 @@ function LoadTagsForTagList(props){
         <div className="tags">
             { tags.map(tag => (
                 <div className="tagList" key={ tag.id }>
-                    <button onClick={() => handleTagClick(tag)} style={{
+                    <div className="tagsPrinted" onClick={ () => handleTagClick(tag)} key={ tag.id }>
+                        { tag.name } <RiCloseCircleLine onClick={() => (console.log(tag.name)) }/>
+                    </div>                    
+                    {/* <button onClick={() => handleTagClick(tag)} style={{
                         color: 'black',
                         backgroundColor: '#b95688',
                         borderRadius: '20px',
                         padding: '10px'
-                    }}>{ tag.name }</button>
+                    }}>{ tag.name }</button> */}
                 </div>
             ))}
         </div>

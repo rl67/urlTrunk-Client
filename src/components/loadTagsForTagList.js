@@ -30,16 +30,10 @@ function LoadTagsForTagList(props){
     return(
         <div className="tags">
             { tags.map(tag => (
-                <div className="tagList" key={ tag.id }>
-                    <div className="tagsPrinted" onClick={ () => handleTagClick(tag)} key={ tag.id }>
+                <div className="tags-preview" key={ tag.id }>
+                    <div onClick={ () => handleTagClick(tag)} key={ tag.id }>
                         { tag.name } <RiCloseCircleLine onClick={() => (console.log(tag.name)) }/>
                     </div>                    
-                    {/* <button onClick={() => handleTagClick(tag)} style={{
-                        color: 'black',
-                        backgroundColor: '#b95688',
-                        borderRadius: '20px',
-                        padding: '10px'
-                    }}>{ tag.name }</button> */}
                 </div>
             ))}
         </div>

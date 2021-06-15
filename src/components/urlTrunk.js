@@ -22,9 +22,9 @@ function UrlTrunk ()  {
         return tags;
     }
 
-    // Delete tag from taglist
+    // Delete tag from the search for tags list
     const DeleteTagFromSearchTags = (tag) => {
-
+        setSearchTags(searchTags.filter(x => x.id !== tag.id));
     }
 
     return(
@@ -49,7 +49,7 @@ function UrlTrunk ()  {
             </div>
             {/* Print selected tags to search for/add to new bookmark */}
             <div className="searchForTags">
-                { searchTags && <SearchForTags tags={ searchTags } /> }
+                { searchTags && <SearchForTags tags={ searchTags } handleDelteTag={ DeleteTagFromSearchTags } /> }
                 { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
             </div>
             {/* Add a new bookmark with tags */}

@@ -1,19 +1,14 @@
 import React from 'react';
+import { RiCloseCircleLine } from 'react-icons/ri';
 
 function SearchForTags (props) {
 
     return(
         <div className="search-for-tags">
-            { props.length > 0 && <h2>Bookmarks tags</h2> }
+            { props.tags.length > 0 && <h2>Bookmarks tags</h2> }
             {props.tags.map(tag => (
                 <div className="tagList-preview" key={tag.id}>
-                    <button style={{
-                        color: 'black',
-                        backgroundColor: '#b95688', 
-                        borderRadius: '20px',
-                        padding: '10px'
-                        }}>{tag.name}
-                    </button>
+                    { tag.name } <RiCloseCircleLine onClick={ () => props.handleDelteTag(tag)} />
                 </div>
             ))}    
         </div>

@@ -19,7 +19,6 @@ function GetBookmarks(props) {
     if (loading) return <div>Loading bookmarks...</div>
     if (error) return <div>`Error fetching bookmarks: ${error.message}`</div>
 
-    console.log(bookmarks); //??
     return(
         <div className="bookmarks">
             { <h2>Bookmarks for selected tags</h2> }

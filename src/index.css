@@ -10,12 +10,17 @@ code {
     monospace;
 }
 
+#btnCmd {
+  background-color: rgb(192, 192, 192);
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+
 /*---------------------------------
                            App
 -----------------------------------*/                           
-.App h1 {
- color: rgb(27, 16, 190);
-}
 
 .content {
   max-width: 600px;
@@ -49,19 +54,20 @@ code {
                            TagList
 -----------------------------------*/                           
 
-.tagList {
-  display: inline-block
-}
 .tagList-preview {
-  /* padding: 2px 1px;
-  margin: 2px 0;
-  border-bottom: 1px solid #fafafa; */
   display: inline-block;
+  color: white;
   border-radius: '10px';
+  background-color: #64bd91;
+  border-radius: 20px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
 }
 
 .tagList-preview:hover {
-  box-shadow: 6px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 6px 3px 5px rgba(0,0,0,0.3);
   cursor: pointer;
 }
 
@@ -79,22 +85,23 @@ code {
 /*---------------------------------
 Printed tags 
 -----------------------------------*/                           
-.tagsPrinted{
+.tags-preview {
   display: inline-block;
   color:white;
   background-color : #854c91;
   margin: 4px;
-  padding: 7px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 20px;
   cursor: pointer;
 }
 
-#btnCmd{
-    background-color: rgb(192, 192, 192);
-    border-radius: 20px;
-    padding: 5px;
-    margin-left: 20px;
+.tags-preview:hover {
+  box-shadow: 6px 3px 5px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
+
 /*---------------------------------
                            addTag 
 -----------------------------------*/                           

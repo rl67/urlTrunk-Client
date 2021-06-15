@@ -1,7 +1,6 @@
 import React from 'react'
 
 function SandBox(props) {
-    console.log(props.tags); //??
     return (
         <div>
             { props.tags.map((tag) => {

@@ -29,37 +29,45 @@ function UrlTrunk ()  {
 
     return(
         <div className="urlTrunk">
-            {/* Print main tag lists */}
-            <h2>Tag Lists</h2>
-            <div className="tag-lists">
-                <TagLists getClickedTagList={ tagListSelected => { setTagListSelected(tagListSelected); setSearchTags([...searchTags, {id: tagListSelected.id, name: tagListSelected.name }]);  } } />
-            </div>
-            {/* Add new tag list */}
-            <div className="addTagList">
-                <AddTagList newTagList={ tagListAdded => setTagListAdded(tagListAdded) }/>
-            </div>
-            {/* Print tags in selected tag list */}
-            <div className="tags-in-list">
-                { tagListSelected && <h2>Tags in { tagListSelected.name }</h2> }
-                { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ (searchTag) => setSearchTags([...searchTags, {id: searchTag.id, name: searchTag.name }]) } /> }
-            </div>
-            {/* Add new tag to selected tag list */}
-            <div className="addTag">
-               { tagListSelected && <AddTag id={ tagListSelected.id }/> }
-            </div>
-            {/* Print selected tags to search for/add to new bookmark */}
-            <div className="searchForTags">
-                { searchTags && <SearchForTags tags={ searchTags } handleDelteTag={ DeleteTagFromSearchTags } /> }
-                { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
-            </div>
-            {/* Add a new bookmark with tags */}
-            <div className="addBookmark">
-                { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) }/>}
-            </div>
-            {/* Get bookmarks according to selected tags */}
-            <div className="getBookmarks">
-                { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
-                { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } /> }
+            <div class="row"> 
+                <div class="columnTags">
+                    <h2>Column 1</h2>
+                    {/* Print main tag lists */}
+                    <h2>Tag Lists</h2>
+                    <div className="tag-lists">
+                        <TagLists getClickedTagList={ tagListSelected => { setTagListSelected(tagListSelected); setSearchTags([...searchTags, {id: tagListSelected.id, name: tagListSelected.name }]);  } } />
+                    </div>
+                    {/* Add new tag list */}
+                    <div className="addTagList">
+                        <AddTagList newTagList={ tagListAdded => setTagListAdded(tagListAdded) }/>
+                    </div>
+                    {/* Print tags in selected tag list */}
+                    <div className="tags-in-list">
+                        { tagListSelected && <h2>Tags in { tagListSelected.name }</h2> }
+                        { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ (searchTag) => setSearchTags([...searchTags, {id: searchTag.id, name: searchTag.name }]) } /> }
+                    </div>
+                    {/* Add new tag to selected tag list */}
+                    <div className="addTag">
+                    { tagListSelected && <AddTag id={ tagListSelected.id }/> }
+                    </div>
+                    {/* Print selected tags to search for/add to new bookmark */}
+                    <div className="searchForTags">
+                        { searchTags && <SearchForTags tags={ searchTags } handleDeleteTag={ DeleteTagFromSearchTags } /> }
+                        { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
+                    </div>
+                    {/* Add a new bookmark with tags */}
+                    <div className="addBookmark">
+                        { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) }/>}
+                    </div>
+                </div>
+                <div class="columnBookmarks">
+                    <h2>Column 2</h2>
+                    {/* Get bookmarks according to selected tags */}
+                    <div className="getBookmarks">
+                        { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
+                        { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } /> }
+                    </div>
+                </div>
             </div>
         </div>
 

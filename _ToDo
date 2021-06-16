@@ -1,4 +1,8 @@
 Bookmarks
     List tags for each bookmark
+    Edit of fields
+    Delete bookmark
+    Add tag
 tags
-    Add TagList to tags when creating search/tag array
+    tool tip - short desc text for tag
+    OK -Add TagList to tags when creating search/tag array

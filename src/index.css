@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+.columnTags {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.columnBookmarks {
+  float: left;
+  width: 75%;
+  padding: 10px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
 body {
   margin: 0;
   font-family: "Quicksand";
-  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -23,7 +46,7 @@ code {
 -----------------------------------*/                           
 
 .content {
-  max-width: 600px;
+  max-width: 100%;
   margin: 4px auto;
   padding: 1px;
 }
@@ -84,7 +107,11 @@ code {
 
 /*---------------------------------
 Printed tags 
------------------------------------*/                           
+-----------------------------------*/   
+.search-for-tags {
+  display: inline-block;
+}                      
+
 .tags-preview {
   display: inline-block;
   color:white;
@@ -113,8 +140,16 @@ Printed tags
 /*---------------------------------
 search-for-tags
 -----------------------------------*/   
-.search-for-tags{
+.bookmark-tags-preview {
   display: inline-block;
+  color: white;
+  background-color: #338cf3;
+  margin: 4px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* ---------------------------------

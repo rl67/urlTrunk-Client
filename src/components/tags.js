@@ -17,7 +17,7 @@ function Tags() {
     
     return ( 
         <div className="tags">
-            <h2>Tags in ...</h2>
+            <h3>Tags in ...</h3>
             {tags.map(tag => (
                 <div className="tags-preview" key={ tag.id }>
                     <button style={{

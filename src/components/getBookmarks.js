@@ -21,14 +21,12 @@ function GetBookmarks(props) {
 
     return(
         <div className="bookmarks">
-            { <h2>Bookmarks for selected tags</h2> }
             <ul id="bookmark-list">
                 { bookmarks.map(bookmark => {
                     return(
                         <li key={ bookmark.id }>
-                             <a href={ bookmark.url }
-                                target="_blank">{ bookmark.name }</a>
-                             <p>{ bookmark.note }</p>
+                            <a href={ bookmark.url } target="_blank">{ bookmark.name }</a>
+                            <p>{ bookmark.note }</p>
                         </li>
                     )
                     })                

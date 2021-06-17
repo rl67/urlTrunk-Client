@@ -7,7 +7,8 @@ import Tags from "./components/tags";
 
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4001/graphql',
+  // uri: 'http://localhost:4001/graphql',
+  uri: 'http://172.16.80.50:4001/graphql',
   cache: new InMemoryCache()
 });
 

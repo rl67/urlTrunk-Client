@@ -34,7 +34,7 @@ function AddBookmark(props){
                 <label>Note:</label>
                 <input type="text" onChange={ (e) => setNote(e.target.value) } />
             </div>
-            <button >Add Bookmark</button>
+            <button id="btnCmd" >Add Bookmark</button>
         </form>
     )
 }

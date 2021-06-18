@@ -21,21 +21,34 @@ function AddBookmark(props){
     }
     
     return(
-        <form id="add-url" onSubmit={() => handleAddBookmark() }>
-            <div className="field">
-                <label>Name of new bookmark:</label>
-                <input type="text" onChange={ (e) => setName(e.target.value) }/>
-            </div>                
-            <div className="field">
-                <label>URL:</label>
-                <input type="url" onChange={ (e) => setUrl(e.target.value) }/>
-            </div>
-            <div className="field">
-                <label>Note:</label>
-                <input type="text" onChange={ (e) => setNote(e.target.value) } />
-            </div>
-            <button id="btnCmd" >Add Bookmark</button>
-        </form>
+        <div className="add-bookmark">
+            <form id="add-url" onSubmit={() => handleAddBookmark() }>
+                <div className="field">
+                    <label>Name of new bookmark:</label>
+                    <input 
+                        type="text"
+                        required
+                        value={ name }
+                        onChange={ (e) => setName(e.target.value) }/>
+                </div>                
+                <div className="field">
+                    <label>URL:</label>
+                    <input
+                        type="url"
+                        required
+                        value={ url }
+                        onChange={ (e) => setUrl(e.target.value) }/>
+                </div>
+                <div className="field">
+                    <label>Note:</label>
+                    <textarea
+                        type="text"
+                        value={ note }
+                        onChange={ (e) => setNote(e.target.value) } />
+                </div>
+                <button id="btnCmd" >Add Bookmark</button>
+            </form>
+        </div>
     )
 }
 

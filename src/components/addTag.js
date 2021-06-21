@@ -40,7 +40,7 @@ function AddTag(props) {
     }
 
     return(
-        <div className="addTag">
+        <div className="addTagFC">
             <label>Name of new tag:</label>
             <input type="text" onChange={ (e) => setName(e.target.value) } />
             <button id="btnCmd" onClick={() => handleAddTag()} >Add tag</button>

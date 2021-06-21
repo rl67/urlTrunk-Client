@@ -21,8 +21,6 @@
   clear: both;
 }
 
-
-
 body {
   margin: 0;
   font-family: "Quicksand";
@@ -100,11 +98,20 @@ code {
   color: #66404c31;
   margin-bottom: 2px;
 }
-.addTagList {
-  margin: 15px;
-  font-size: 18px;
+/*---------------------------------
+                          AddTagList
+-----------------------------------*/   
+.addTagListFC {
+  width: 70%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  display: block;
 }
 
+.addTagListFC label {
+  margin-right: 10px;
+}
 
 /*---------------------------------
 Printed tags 
@@ -133,11 +140,17 @@ Printed tags
 /*---------------------------------
                            addTag 
 -----------------------------------*/                           
-.addTag {
-  margin: 15px;
-  font-size: 18px;
+.addTagFC {
+  width: 70%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  display: block;
 }
 
+.addTagFC label {
+  margin-right: 10px;
+}
 /*---------------------------------
 search-for-tags
 -----------------------------------*/   
@@ -157,11 +170,10 @@ search-for-tags
 addBookmark                     
 -----------------------------------*/   
 .add-bookmark {
-  width: 100%;
+  width: 70%;
   padding: 6px 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
-  box-sizing: border-box;
   display: block;
   text-align: center;
 }

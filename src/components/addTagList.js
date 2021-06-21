@@ -20,10 +20,9 @@ function AddTagList(props) {
     }
 
     return( 
-        <div className="addTagList">
+        <div className="addTagListFC">
             <label>Name of new tag list:</label>
             <input type="text" onChange={ (e) => setName(e.target.value) } />
-
             <button id="btnCmd" onClick={() => handleAddTagList()} >Add tag list</button>
         </div>
     );

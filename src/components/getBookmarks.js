@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_BOOKMARKS } from '../graphql/queries';
+import { RiEditLine } from 'react-icons/ri';
 
 function GetBookmarks(props) {
     const [bookmarks, setBookmarks] = useState([]);
@@ -25,7 +26,8 @@ function GetBookmarks(props) {
                 { bookmarks.map(bookmark => {
                     return(
                         <li key={ bookmark.id }>
-                            <a href={ bookmark.url } target="_blank">{ bookmark.name }</a>
+                             <RiEditLine onClick={() => console.log(bookmark.name)} />    
+                             <a href={ bookmark.url } target="_blank">{ bookmark.name }</a>
                             <p>{ bookmark.note }</p>
                         </li>
                     )

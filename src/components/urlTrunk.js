@@ -13,6 +13,7 @@ function UrlTrunk ()  {
     const [ tagListAdded, setTagListAdded ] = useState(false);
     const [ searchTags, setSearchTags ] = useState([]);                 // List of objects with tags to search for/add to bookmark. Id and tag name
     const [ search, setSearch ] = useState(false)
+    
 
     // Extract the id to a separate id array. To be used as grapqhl argument for tag
     const SearchTagsToArray = (sTags) => {
@@ -23,6 +24,7 @@ function UrlTrunk ()  {
     // Delete tag from the search for tags list
     const DeleteTagFromSearchTags = (tag) => {
         setSearchTags(searchTags.filter(x => x.id !== tag.id));
+        setSearch(false);   // tags selected for search is modified => have to do new search
     }
 
     return(

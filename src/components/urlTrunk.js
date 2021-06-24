@@ -12,19 +12,29 @@ function UrlTrunk ()  {
     const [ tagListSelected , setTagListSelected ] = useState(null);    // Selected main tag list. Will fetch tags for this list
     const [ tagListAdded, setTagListAdded ] = useState(false);
     const [ searchTags, setSearchTags ] = useState([]);                 // List of objects with tags to search for/add to bookmark. Id and tag name
-    const [ search, setSearch ] = useState(false)
-    
+    const [ search, setSearch ] = useState(false);
+    const [ edit, setEdit ] = useState(false);
+    const [ bookmarkToEdit, setBookmarkToEdit ] = useState(null);
+    const [ tagsIds, setTagIds ] = useState([]);        // the id element of searchTags, the tag object
 
     // Extract the id to a separate id array. To be used as grapqhl argument for tag
     const SearchTagsToArray = (sTags) => {
         let tags = sTags.map(item => item['id']);
-        return tags;
+        // setTagIds(tags);
+        return tags
     }
 
     // Delete tag from the search for tags list
     const DeleteTagFromSearchTags = (tag) => {
-        setSearchTags(searchTags.filter(x => x.id !== tag.id));
+        setSearchTags(searchTags.filter(x => x.id !== tag.id)); // Remove tag clicked for deletion
         setSearch(false);   // tags selected for search is modified => have to do new search
+    }
+
+    // handler - Prepare selected Bookmark for editing
+    const OpenBookmarkEdit = (bookmark) => {
+        setEdit(true);
+        setBookmarkToEdit(bookmark);
+        console.log(bookmark)//??
     }
 
     return(
@@ -43,7 +53,7 @@ function UrlTrunk ()  {
                     {/* Print tags in selected tag list */}
                     <div className="tags-in-list">
                         { tagListSelected && <h3>Tags in { tagListSelected.name }</h3> }
-                        { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ (searchTag) => setSearchTags([...searchTags, {id: searchTag.id, name: searchTag.name }]) } /> }
+                        { tagListSelected && tagListSelected.id && <LoadTagsForTagList id={ tagListSelected.id } getClickedTag={ (selectedTag) => setSearchTags([...searchTags, {id: selectedTag.id, name: selectedTag.name }]) } /> }
                     </div>
                     {/* Add new tag to selected tag list */}
                     <div className="addTag">
@@ -56,7 +66,8 @@ function UrlTrunk ()  {
                     </div>
                     {/* Add a new bookmark with tags */}
                     <div className="addBookmark">
-                        { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) }/>}
+                        { console.log(searchTags) } //??
+                        { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) } bookmarkToEdit={ bookmarkToEdit } edit={ edit }/>}
                     </div>
                 </div>
                 <div className="columnBookmarks">
@@ -65,7 +76,9 @@ function UrlTrunk ()  {
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
                         { <h3>Bookmarks for selected tags</h3> }
-                        { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } /> }
+                        { console.log("print tgs")}
+                        { console.log(searchTags.length)}
+                        { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
                     </div>
                 </div>
             </div>

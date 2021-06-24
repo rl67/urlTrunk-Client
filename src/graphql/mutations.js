@@ -30,3 +30,12 @@ export const ADD_BOOKMARK = gql`
     }
   }
 `;
+
+// Update bookmark
+export const UPDATE_BOOKMARK = gql`
+mutation UpdateBookmark($id: ID!, $name: String!, $url: String!, $note: String, $tags: [ID]) {
+  updateBookmark(id: $id, name: $name, url: $url, note: $note, tags: $tags) {
+    name
+  }
+}
+`;

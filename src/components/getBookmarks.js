@@ -11,6 +11,10 @@ function GetBookmarks(props) {
         }
     });
     
+    const handleBmClick = (bookmark) => {
+        props.handleEdit(bookmark);
+    }
+
     useEffect(() => {
         if (data){
             setBookmarks(data.bookmarksByTags);
@@ -26,7 +30,8 @@ function GetBookmarks(props) {
                 { bookmarks.map(bookmark => {
                     return(
                         <li key={ bookmark.id }>
-                             <RiEditLine onClick={() => console.log(bookmark.name)} />    
+                             {/* <RiEditLine onClick={ () => props.handleEdit(bookmark) } />     */}
+                             <RiEditLine onClick={ () => handleBmClick(bookmark) } />    
                              <a href={ bookmark.url } target="_blank">{ bookmark.name }</a>
                             <p>{ bookmark.note }</p>
                         </li>

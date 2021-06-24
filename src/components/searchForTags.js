@@ -7,7 +7,7 @@ function SearchForTags (props) {
         <div className="search-for-tags">
             {props.tags.map(tag => (
                 <div className="bookmark-tags-preview" key={tag.id}>
-                    { tag.name } <RiCloseCircleLine onClick={ () => props.handleDeleteTag(tag)} />
+                    { tag.name } <RiCloseCircleLine onClick={ () => props.handleDeleteTag(tag) } />
                 </div>
             ))}    
         </div>

@@ -34,7 +34,6 @@ function UrlTrunk ()  {
     const OpenBookmarkEdit = (bookmark) => {
         setEdit(true);
         setBookmarkToEdit(bookmark);
-        console.log(bookmark)//??
     }
 
     return(
@@ -64,20 +63,17 @@ function UrlTrunk ()  {
                         { searchTags.length > 0 && <h3>Bookmarks tags</h3> }
                         { searchTags && <SearchForTags tags={ searchTags } handleDeleteTag={ DeleteTagFromSearchTags } /> }
                     </div>
-                    {/* Add a new bookmark with tags */}
+                    {/* Add a new Bookmark with tags, or update existing Bookmark */}
                     <div className="addBookmark">
-                        { console.log(searchTags) } //??
                         { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) } bookmarkToEdit={ bookmarkToEdit } edit={ edit }/>}
                     </div>
                 </div>
                 <div className="columnBookmarks">
-                    {/* Get bookmarks according to selected tags */}
+                    {/* Get/load Bookmarks according to selected tags */}
                     <div className="getBookmarks">
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
                         { <h3>Bookmarks for selected tags</h3> }
-                        { console.log("print tgs")}
-                        { console.log(searchTags.length)}
                         { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
                     </div>
                 </div>

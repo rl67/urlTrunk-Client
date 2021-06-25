@@ -36,6 +36,18 @@ export const UPDATE_BOOKMARK = gql`
 mutation UpdateBookmark($id: ID!, $name: String!, $url: String!, $note: String, $tags: [ID]) {
   updateBookmark(id: $id, name: $name, url: $url, note: $note, tags: $tags) {
     name
+    url
+    note
+  }
+}
+`;
+
+// BOOKMARK - Delete
+export const DELETE_BOOKMARK = gql`
+mutation DeleteBookmark($id: ID!) {
+  deleteBookmark(id: $id) {
+    id
+    name
   }
 }
 `;

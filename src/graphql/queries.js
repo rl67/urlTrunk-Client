@@ -54,6 +54,15 @@ export const GET_BOOKMARKS = gql`
             name
             url
             note
+            tags
+            tagsII {
+              id
+              name
+            }
+            tagLists {
+              id
+              name
+            }
         }
     }
 `;

@@ -19,8 +19,10 @@ function UrlTrunk ()  {
 
     // Extract the id to a separate id array. To be used as grapqhl argument for tag
     const SearchTagsToArray = (sTags) => {
+        console.log("SearchTagsToArray");   //??
+        console.log(sTags); //??
         let tags = sTags.map(item => item['id']);
-        // setTagIds(tags);
+        console.log(tags); //??
         return tags
     }
 
@@ -34,6 +36,14 @@ function UrlTrunk ()  {
     const OpenBookmarkEdit = (bookmark) => {
         setEdit(true);
         setBookmarkToEdit(bookmark);
+        let bmTags = [];
+        bookmark.tagLists.map(tagList => {
+            bmTags = [ ...bmTags, { id: tagList.id, name: tagList.name }];
+        });
+        bookmark.tagsII.map(tag => {
+            bmTags = [ ...bmTags, { id: tag.id, name: tag.name } ];
+        });
+        setSearchTags(bmTags);
     }
 
     return(
@@ -66,6 +76,7 @@ function UrlTrunk ()  {
                     {/* Add a new Bookmark with tags, or update existing Bookmark */}
                     <div className="addBookmark">
                         { searchTags.length > 0 && <AddBookmark tags={ SearchTagsToArray(searchTags) } bookmarkToEdit={ bookmarkToEdit } edit={ edit }/>}
+                        {/* { setEdit(false) } */}
                     </div>
                 </div>
                 <div className="columnBookmarks">
@@ -74,7 +85,7 @@ function UrlTrunk ()  {
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
                         { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
                         { <h3>Bookmarks for selected tags</h3> }
-                        { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
+                        { !edit && search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
                     </div>
                 </div>
             </div>

@@ -38,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "author": "rl67 <15954445+rl67@users.noreply.github.com>",
+  "license": "MIT"
 }

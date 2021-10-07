@@ -1,10 +1,25 @@
+System
+    Configure; Button to turn on/off config mode.
+        In config mode;
+            Show Add TagList/Add TagList
+            Show Delete icon in TagLists & Tags
+    Separate Div for Config and Search & Clear Button
+    Refactor props
+    Remove no-unused-vars & compile warnings
+
 Bookmarks
-    List tags for each bookmark
-    Edit of fields
-    Delete bookmark
-    Add tag
+    OK - List tags for each bookmark
+    OK - Edit bookmark fields
+    OK - Delete bookmark
+    OK - Add tag
 tags
+    Rename tag
+    Delete
     tool tip - short desc text for tag
     tag from TagList deleted from SearTags (e.g. commonTags) What to do in this situation?
         Shall tese tags be deletable from the SearchTags?
     OK -Add TagList to tags when creating search/tag array
+
+tagLists
+    Rename list
+    Delete

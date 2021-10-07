@@ -12,6 +12,7 @@ function AddBookmark({ tags, bookmarkToEdit, edit }){
     const [ deleteBookmark, { dataBookmarkDelete } ] = useMutation(DELETE_BOOKMARK);
 
     useEffect(() => {
+        // Fill info for selecte BM to edit, into to the edit Form
         if (edit) {
             setName(bookmarkToEdit.name);
             setUrl(bookmarkToEdit.url);
@@ -46,7 +47,6 @@ function AddBookmark({ tags, bookmarkToEdit, edit }){
     }
     
     const handleDeleteBookmark = () => {
-        console.log(bookmarkToEdit.id);//??
         deleteBookmark({
             variables: {
                 id: bookmarkToEdit.id

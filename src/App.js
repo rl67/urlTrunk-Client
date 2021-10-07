@@ -8,14 +8,13 @@ import Tags from "./components/tags";
 
 const client = new ApolloClient({
   // uri: 'http://localhost:4001/graphql',
-  uri: 'http://172.16.80.50:4001/graphql',
+  // uri: 'http://172.16.80.50:4001/graphql',
+  uri: 'http://172.19.119.237:4001/graphql',
   cache: new InMemoryCache()
 });
 
 
-// class App extends Component {
 function App () {
-    // render(){
     return (
       <ApolloProvider client={client}>
         <Router>
@@ -23,7 +22,7 @@ function App () {
             <Navbar />
             <div className="content">
               <Switch>
-                <Route exact path="/urls">
+                <Route exact path="/">
                   <UrlTrunk />
                 </Route>
                 <Route path="/tags">
@@ -35,7 +34,6 @@ function App () {
         </Router>
       </ApolloProvider>
     );
-  // }
 }
 
 export default App;

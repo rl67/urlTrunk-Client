@@ -16,13 +16,11 @@ function UrlTrunk ()  {
     const [ edit, setEdit ] = useState(false);
     const [ bookmarkToEdit, setBookmarkToEdit ] = useState(null);
     const [ tagsIds, setTagIds ] = useState([]);        // the id element of searchTags, the tag object
+    const [ config, setConfig ] = useState(false)       // Configuration mode for tag lists and tags
 
     // Extract the id to a separate id array. To be used as grapqhl argument for tag
     const SearchTagsToArray = (sTags) => {
-        console.log("SearchTagsToArray");   //??
-        console.log(sTags); //??
         let tags = sTags.map(item => item['id']);
-        console.log(tags); //??
         return tags
     }
 
@@ -36,6 +34,7 @@ function UrlTrunk ()  {
     const OpenBookmarkEdit = (bookmark) => {
         setEdit(true);
         setBookmarkToEdit(bookmark);
+        // Fetch tags from TagList and tags in selected bookmark, join to one array
         let bmTags = [];
         bookmark.tagLists.map(tagList => {
             bmTags = [ ...bmTags, { id: tagList.id, name: tagList.name }];
@@ -49,6 +48,9 @@ function UrlTrunk ()  {
     return(
         <div className="urlTrunk">
             <div className="row"> 
+                <div className="Config">
+                    <button id="btnCmd" >Config</button>
+                </div>
                 <div className="columnTags">
                     {/* Print main tag lists */}
                     <h3>Tag Lists</h3>
@@ -79,13 +81,15 @@ function UrlTrunk ()  {
                         {/* { setEdit(false) } */}
                     </div>
                 </div>
+                <div className="Search">
+                    { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
+                    { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null); setEdit(false)} } >Clear</button> }
+                </div>
                 <div className="columnBookmarks">
-                    {/* Get/load Bookmarks according to selected tags */}
+                    {/*  Get/load Bookmarks according to selected tags */}
                     <div className="getBookmarks">
-                        { searchTags.length > 0 && <button id="btnCmd" onClick={ () => setSearch(true) } >Search</button> }
-                        { searchTags.length > 0 && <button id="btnCmd" onClick={ () => {setSearchTags([]); setSearch(false); setTagListSelected(null);} } >Clear</button> }
                         { <h3>Bookmarks for selected tags</h3> }
-                        { !edit && search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
+                        { search && searchTags.length > 0 && <GetBookmarks tags={ SearchTagsToArray(searchTags) } handleEdit={ OpenBookmarkEdit }/> }
                     </div>
                 </div>
             </div>

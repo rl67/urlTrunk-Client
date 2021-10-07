@@ -1,24 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_TAG } from '../graphql/mutations';
 import { LAOD_TAGS_FOR_TAGLIST } from '../graphql/queries';
 
 function AddTag(props) {
     const [ name, setName ] = useState('');
-    const [ tags, setTags ] = useState([]);
-    const [ addTag, { addTagData } ] = useMutation(ADD_TAG);
-    const { loading, data, error } = useQuery(LAOD_TAGS_FOR_TAGLIST, {
+    const [ addTag ] = useMutation(ADD_TAG);
+    const { loading, error } = useQuery(LAOD_TAGS_FOR_TAGLIST, {
         variables: {
             id: props.id
         }
     })
-
-
-    useEffect(() => {
-        if (data){
-            setTags(data.tagList);
-        }
-    }, [data, addTagData])
 
     if (loading) return <div>Loading tags...</div>
     if (error) return <div>`Error fetching tags: ${ error.message}`</div>
